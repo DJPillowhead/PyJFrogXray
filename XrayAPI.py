@@ -33,12 +33,8 @@ class xray_jfrog_api:
             'content-type': "application/json;charset=UTF-8",
             'accept': "application/json, text/plain, */*",
             }
-
-        print querystring
-
         response = requests.request("POST", myURL, data=json.dumps(payload),auth=self.auth, headers=headers, params=querystring)
 
-        print(response.text)
         return response.json()
 
 if __name__ == "__main__":
