@@ -45,8 +45,8 @@ if __name__ == "__main__":
     baseuri = "http://xray.chemaxon.com"
     username = raw_input("Username:")
     password = getpass.getpass("Password for " + username + ":")
-    d = xray_jfrog_api(baseuri, username, password)
-    x = d.getComponents(num_of_rows="1",
-                        severity="Critical",
-                        component_type="packages")
-    print x
+    xray_api = xray_jfrog_api(baseuri, username, password)
+    requested_data = xray_api.getComponents(num_of_rows="1",
+                                            severity="Critical",
+                                            component_type="packages")
+    print json.dumps(requested_data, indent=4, sort_keys=True)
